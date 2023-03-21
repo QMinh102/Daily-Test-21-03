@@ -2,6 +2,7 @@ let array = [1,4,5,6,7,1];
 let array2 = [1,2,3,4,5,6,7,8];
 let array3 = [1000, 204, 142, 98724, 19421841, 1];
 let array4 = [1000, 204, 142, 98724, 19421841];
+let array5 = [];
 let increasingTest = false;
 let biggerFrontNumber = false;
 
@@ -34,6 +35,7 @@ testingArrayIncrementIncrease(array);
 testingArrayIncrementIncrease(array2);
 testingArrayIncrementIncrease(array3);
 testingArrayIncrementIncrease(array4);
+testingArrayIncrementIncrease(array5);
 
 
 function testingFrontBigValue(array) {
@@ -63,5 +65,4 @@ testingFrontBigValue(array);
 testingFrontBigValue(array2);
 testingFrontBigValue(array3);
 testingFrontBigValue(array4);
-
-
+testingFrontBigValue(array5);
