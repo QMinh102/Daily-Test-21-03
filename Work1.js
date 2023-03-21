@@ -7,7 +7,6 @@ let increasingTest = false;
 let biggerFrontNumber = false;
 
 
-
 function testingArrayIncrementIncrease(array) {
     let arrayCheck = new Map();
 
