@@ -1,10 +1,11 @@
-let array = [1,4,5,6,7,1];
-let array2 = [1,2,3,4,5,6,7,8];
+let array = [0, 1, 4, 5, 6, 7, 1, 9];
+let array2 = [1, 2, 3, 4, 5, 6, 7, 8];
 let array3 = [1000, 204, 142, 98724, 19421841, 1];
-let array4 = [1000, 204, 142, 98724, 19421841];
-let array5 = [];
+let array4 = [100, 204, 142, 4, 194241, 50];
+let array5 = [200, 100, 19, 199, 322, 320, 400];
+let array6 = [];
 let increasingTest = false;
-let biggerFrontNumber = false;
+let biggestNumber = 0;
 
 
 function testingArrayIncrementIncrease(array) {
@@ -17,7 +18,6 @@ function testingArrayIncrementIncrease(array) {
             if (arrayCheck.get(array[arrayIndexing]) === undefined) {
                 increasingTest = true;
                 arrayCheck.set(arrayCheck.size, array[arrayIndexing]);
-                console.log(arrayCheck);
             } else {
                 increasingTest = false;
             }
@@ -35,28 +35,43 @@ testingArrayIncrementIncrease(array2);
 testingArrayIncrementIncrease(array3);
 testingArrayIncrementIncrease(array4);
 testingArrayIncrementIncrease(array5);
+testingArrayIncrementIncrease(array6);
 
 
 function testingFrontBigValue(array) {
-    let map2 = new Map();
+    let bigNumber = new Map();
+    let bigNumberCount = 0;
+    let valid = false;
 
-    if (array.length === 0) {
-        console.log(`The array has no value`);
+    if (array.length <= 0 ) {
+        biggestNumber = `The array has no value`;
+        console.log(biggestNumber);
+    } else if (array.length === 1) {
+        biggestNumber = array[0];
+        bigNumberCount = 1;
+        console.log(bigNumberCount);
+        valid = true;
     } else {
+        biggestNumber = array[0];
         for (let indexing = 0; indexing < array.length; indexing++) {
-            if (map2.get(indexing - 1) === undefined || (map2.get(indexing - 1) < array[indexing])) {
-                biggerFrontNumber = true;
-                map2.set(map2.size, array[indexing]);
-                console.log(map2);
-            } else {
-                biggerFrontNumber = false;
+            if (array[indexing] > biggestNumber) {
+                if (bigNumber.get(array[indexing]) === undefined) {
+                    bigNumber.set(array[indexing], 1);
+                    bigNumberCount++;
+                    valid = true;
+                } else {
+                    bigNumber.set(array[indexing], bigNumber.get(array[indexing]));
+                    bigNumberCount++;
+                    valid = true;
+                }
             }
+        } if (bigNumber.size === 0) {
+            biggestNumber = `The array has no value`;
+            console.log(biggestNumber);
         }
-        if (biggerFrontNumber === true) {
-            console.log(`The front value is always bigger than their previous value`);
-        } else {
-            console.log(`The front value isn't always bigger than their previous value`);
-        }
+    }
+    if (valid === true) {
+        console.log(`The amount of number that is bigger than all the value in front of it is ${bigNumberCount}`);
     }
 }
 
@@ -65,3 +80,4 @@ testingFrontBigValue(array2);
 testingFrontBigValue(array3);
 testingFrontBigValue(array4);
 testingFrontBigValue(array5);
+testingFrontBigValue(array6);
